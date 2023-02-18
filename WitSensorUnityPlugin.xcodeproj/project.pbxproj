@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B24C334299DDF3C0083064E /* WitSensorUnityPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B24C333299DDF3C0083064E /* WitSensorUnityPlugin.m */; };
-		4B24C335299DDF3C0083064E /* WitSensorUnityPlugin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B24C332299DDF3C0083064E /* WitSensorUnityPlugin.h */; };
+		4B24C334299DDF3C0083064E /* WitSensorInterface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B24C333299DDF3C0083064E /* WitSensorInterface.mm */; };
+		4B24C335299DDF3C0083064E /* WitSensorInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B24C332299DDF3C0083064E /* WitSensorInterface.h */; };
+		4B24C33C299DDF7C0083064E /* WitSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B24C33B299DDF7C0083064E /* WitSDK.framework */; platformFilter = ios; };
+		4B24C33F299DDFB40083064E /* WitSensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B24C33E299DDFB40083064E /* WitSensorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +20,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				4B24C335299DDF3C0083064E /* WitSensorUnityPlugin.h in CopyFiles */,
+				4B24C335299DDF3C0083064E /* WitSensorInterface.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -26,8 +28,11 @@
 
 /* Begin PBXFileReference section */
 		4B24C32F299DDF3C0083064E /* libWitSensorUnityPlugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWitSensorUnityPlugin.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B24C332299DDF3C0083064E /* WitSensorUnityPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WitSensorUnityPlugin.h; sourceTree = "<group>"; };
-		4B24C333299DDF3C0083064E /* WitSensorUnityPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WitSensorUnityPlugin.m; sourceTree = "<group>"; };
+		4B24C332299DDF3C0083064E /* WitSensorInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WitSensorInterface.h; sourceTree = "<group>"; };
+		4B24C333299DDF3C0083064E /* WitSensorInterface.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WitSensorInterface.mm; sourceTree = "<group>"; };
+		4B24C33B299DDF7C0083064E /* WitSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WitSDK.framework; sourceTree = "<group>"; };
+		4B24C33D299DDFB40083064E /* WitSensorUnityPlugin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WitSensorUnityPlugin-Bridging-Header.h"; sourceTree = "<group>"; };
+		4B24C33E299DDFB40083064E /* WitSensorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WitSensorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B24C33C299DDF7C0083064E /* WitSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +50,7 @@
 		4B24C326299DDF3C0083064E = {
 			isa = PBXGroup;
 			children = (
+				4B24C33B299DDF7C0083064E /* WitSDK.framework */,
 				4B24C331299DDF3C0083064E /* WitSensorUnityPlugin */,
 				4B24C330299DDF3C0083064E /* Products */,
 			);
@@ -60,8 +67,10 @@
 		4B24C331299DDF3C0083064E /* WitSensorUnityPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				4B24C332299DDF3C0083064E /* WitSensorUnityPlugin.h */,
-				4B24C333299DDF3C0083064E /* WitSensorUnityPlugin.m */,
+				4B24C332299DDF3C0083064E /* WitSensorInterface.h */,
+				4B24C333299DDF3C0083064E /* WitSensorInterface.mm */,
+				4B24C33E299DDFB40083064E /* WitSensorManager.swift */,
+				4B24C33D299DDFB40083064E /* WitSensorUnityPlugin-Bridging-Header.h */,
 			);
 			path = WitSensorUnityPlugin;
 			sourceTree = "<group>";
@@ -97,6 +106,7 @@
 				TargetAttributes = {
 					4B24C32E299DDF3C0083064E = {
 						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
 					};
 				};
 			};
@@ -123,7 +133,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B24C334299DDF3C0083064E /* WitSensorUnityPlugin.m in Sources */,
+				4B24C33F299DDFB40083064E /* WitSensorManager.swift in Sources */,
+				4B24C334299DDF3C0083064E /* WitSensorInterface.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,11 +254,24 @@
 		4B24C339299DDF3C0083064E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P9TVSH3F53;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WitSensorUnityPlugin/WitSensorUnityPlugin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -255,11 +279,23 @@
 		4B24C33A299DDF3C0083064E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P9TVSH3F53;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WitSensorUnityPlugin/WitSensorUnityPlugin-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
